@@ -22,7 +22,7 @@ Pony::Pony()
 
 Pony::~Pony()
 {
-    std::cout << "The pony number " << _pony_number << "has been created" << std::endl;
+    std::cout << "The pony number " << _pony_number << "has been destoyed" << std::endl;
 }
 
 int Pony::_total_number = 0;

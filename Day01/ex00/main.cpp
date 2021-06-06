@@ -20,9 +20,9 @@ void ponyOnTheStack()
 void ponyOnTheHeap()
 {
 	Pony *ponyOnTheHeap;
-	
+
 	ponyOnTheHeap = new Pony();
-	
+	delete ponyOnTheHeap;
 }
 
 int	main()

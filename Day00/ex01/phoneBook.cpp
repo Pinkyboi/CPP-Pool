@@ -15,6 +15,7 @@
 int getIndex(size_t maxIndex)
 {
 	std::string	desiredIndex;
+
 	std::cout << "Enter the index you want : ";
 	std::getline(std::cin, desiredIndex);
 	if(desiredIndex.size() == 1 &&  isdigit(desiredIndex[0]) && stoi(desiredIndex) < maxIndex)
@@ -37,11 +38,10 @@ void	printBlock(std::string field, size_t width)
 	std::cout << '|';
 	std::cout << std::setw(width);
 	std::cout << minimizeString(width, field);
-	std::cout << '|';	
 }
 
-void	showContacts(Contact contactList[],int firstIndex,
-		int listSize, int fieldNumber, size_t displayMode = 0)
+void	showContacts(Contact contactList[],size_t firstIndex,
+		size_t listSize, int fieldNumber, size_t displayMode = 0)
 {
 	int startIndex;
 
@@ -59,10 +59,13 @@ void	showContacts(Contact contactList[],int firstIndex,
 				if(displayMode){
 					printBlock(contactList[i].GetMessage(j), MESSAGE_SIZE);
 					printBlock(contactList[i].GetField(j), contactList[i].GetField(j).size());
+					std::cout << '|';
 					std::cout << std::endl;
 				}
 			}	
 		}
+		if(!displayMode)
+			std::cout << '|';
 		std::cout << std::endl;
 	}
 	std::cout <<std::endl;
