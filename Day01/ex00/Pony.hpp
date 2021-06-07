@@ -16,7 +16,7 @@
 class Pony
 {
     public:
-        Pony(/* args */);
+        Pony();
         ~Pony();
     private:
         static int _total_number;
