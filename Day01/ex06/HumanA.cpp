@@ -12,14 +12,8 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon Weapon)
+HumanA::HumanA(const std::string name, const std::string &weaponType): _weapon(weaponType), _name(name)
 {
-	this->_weapon = Weapon.getType();
-	this->_name = name;
-}
-HumanA::HumanA(std::string name)
-{
-	this->_name = name;
 }
 
 HumanA::~HumanA()
@@ -29,9 +23,4 @@ HumanA::~HumanA()
 void HumanA::attack()
 {
 	std::cout << this->_name << " attacks with his " << this->_weapon << std::endl;
-}
-
-void HumanA::setWeapon(std::string weaponName)
-{
-	this->_weapon = Weapon.getType();
 }

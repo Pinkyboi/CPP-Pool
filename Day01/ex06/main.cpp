@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
-#include "HumanA.hpp"
-#include "Weapon.hpp"
 
 int main()
 {
