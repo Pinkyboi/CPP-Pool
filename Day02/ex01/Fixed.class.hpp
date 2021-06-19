@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -20,11 +21,13 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(const Fixed &argument);
+		Fixed(int numberValue);
+		Fixed(float numberValue);
 		~Fixed();
-		int		getRawBits(void) const;
-		int		toInt(void) const;
-		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		Fixed	&operator=(const Fixed &argument);
+		float toFloat(void) const;
+		int toInt(void) const;
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+		Fixed &operator=(const Fixed &argument);
 };
-
+std::ostream& operator<< (std::ostream& stream, const Fixed& agument);

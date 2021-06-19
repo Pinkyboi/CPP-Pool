@@ -23,6 +23,26 @@ Fixed::Fixed(const Fixed &argument)
 	*this = argument;
 }
 
+Fixed::Fixed(int numberValue)
+{
+	this->_fixePointValue = numberValue * (1 << _bitNumber); 
+}
+
+Fixed::Fixed(float numberValue)
+{
+	this->_fixePointValue = roundf(numberValue * (1 << _bitNumber)); 
+}
+
+float Fixed::toFloat(void) const
+{
+	return((float)(this->_fixePointValue) / (1 << _bitNumber));
+}
+
+int Fixed::toInt(void) const
+{
+	return((this->_fixePointValue) / (1 << _bitNumber));
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -46,4 +66,10 @@ Fixed &Fixed::operator=(const Fixed &argument) {
 		return *this;
 	this->_fixePointValue = argument.getRawBits();
 	return *this;
+}
+
+std::ostream& operator<< (std::ostream& stream, const Fixed& argument)
+{
+	stream << argument.toFloat();
+	return stream;
 }
