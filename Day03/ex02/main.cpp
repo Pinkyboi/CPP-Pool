@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/15 16:17:05 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/15 16:17:12 by abenaiss         ###   ########.fr       */
+/*   Created: 2021/06/23 16:18:01 by abenaiss          #+#    #+#             */
+/*   Updated: 2021/06/23 16:18:02 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class Fixed
-{
-	private:
-		int _fixePointValue;
-		static const int _bitNumber = 8;
-	public:
-		Fixed(void);
-		Fixed(const Fixed &argument);
-		~Fixed();
-		int		getRawBits(void) const;
-		int		toInt(void) const;
-		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		Fixed	&operator=(const Fixed &argument);
-};
-
+int	main( void ) {
+	FragTrap	b("saniq");
+	ScavTrap	c("chi7aja");
+	
+	b.takeDamage(2);
+	b.beRepaired(1);
+	b.takeDamage(104);
+	b.beRepaired(45);
+	b.vaulthunter_dot_exe("omok");
+	// c.challengeNewcomer();
+	return 0;
+}

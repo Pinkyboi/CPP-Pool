@@ -22,7 +22,7 @@ class Contact
 {
 
 	private:
-		static const std::string _messages[ARG_NUMBER];
+		const std::string _messages[ARG_NUMBER];
 		std::string _fields[ARG_NUMBER];
 	public:
 		Contact();

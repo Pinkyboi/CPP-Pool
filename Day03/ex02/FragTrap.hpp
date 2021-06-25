@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/15 16:17:05 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/15 16:17:12 by abenaiss         ###   ########.fr       */
+/*   Created: 2021/06/23 16:17:53 by abenaiss          #+#    #+#             */
+/*   Updated: 2021/06/23 16:17:54 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
-class Fixed
+#ifndef _FRAG_TRAP_HPP_
+#define _FRAG_TRAP_HPP_
+
+#include "ClapTrap.hpp"
+
+#define ATTACKS_NUMBER 5
+// #include <iostream>
+class FragTrap : public ClapTrap
 {
+
 	private:
-		int _fixePointValue;
-		static const int _bitNumber = 8;
+		static const std::string _attackPool[ATTACKS_NUMBER];
 	public:
-		Fixed(void);
-		Fixed(const Fixed &argument);
-		~Fixed();
-		int		getRawBits(void) const;
-		int		toInt(void) const;
-		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		Fixed	&operator=(const Fixed &argument);
+		FragTrap(std::string name);
+		FragTrap(const FragTrap &argument);
+		FragTrap(void);
+		~FragTrap();
+		void		vaulthunter_dot_exe(std::string const & target);
+		FragTrap	&operator=(const FragTrap &argument);
 };
 
+#endif
