@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 16:17:46 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/26 17:22:06 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/06/26 17:47:57 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ const std::string FragTrap::_attackPool[ATTACKS_NUMBER] =
 FragTrap::FragTrap(std::string name):ClapTrap(name)
 {
 	std::cout << "[FragTrap] Default constructor is called." << std::endl;
-    this->_meleeAttackDamage = 30;
     this->_rangedAttackDamage = 20;
     this->_armorDamageReduction = 5;
 	std::srand (std::time(NULL));
@@ -34,7 +33,6 @@ FragTrap::FragTrap(void):ClapTrap()
 {
 	std::cout << "[FragTrap] Default constructor is called." << std::endl;
 	this->_name = "FragTrap";
-    this->_meleeAttackDamage = 30;
     this->_rangedAttackDamage = 20;
     this->_armorDamageReduction = 5;
 	std::srand (std::time(NULL));
