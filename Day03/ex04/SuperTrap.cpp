@@ -12,7 +12,7 @@
 
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap(std::string name):FragTrap(name), NinjaTrap(name)
+SuperTrap::SuperTrap(std::string name)
 {
 	std::cout << "[SuperTrap] Default constructor is called." << std::endl;
 	this->_name = name;
@@ -26,7 +26,7 @@ SuperTrap::SuperTrap(std::string name):FragTrap(name), NinjaTrap(name)
     std::srand (std::time(NULL));
 }
 
-SuperTrap::SuperTrap(void):FragTrap(), NinjaTrap()
+SuperTrap::SuperTrap(void)
 {
 	std::cout << "[SuperTrap] Default constructor is called." << std::endl;
 	this->_name = "SuperTrap";
@@ -56,17 +56,7 @@ SuperTrap &SuperTrap::operator=(const SuperTrap &argument)
 {
 	if (&argument == this)
 		return *this;
-	this->_name					= argument._name;
-	this->_hitPoints			= argument._hitPoints;
-	this->_hitPoints 			= argument._hitPoints;
-	this->_energyPoints 		= argument._energyPoints;
-	this->_maxHitPoints 		= argument._maxHitPoints;
-	this->_maxEnergyPoints 		= argument._maxEnergyPoints;
-	this->_level				= argument._level;
-	this->_meleeAttackDamage	= argument._meleeAttackDamage;
-	this->_rangedAttackDamage	= argument._rangedAttackDamage;
-	this->_specialdAttackDamage	= argument._specialdAttackDamage;
-	this->_armorDamageReduction	= argument._armorDamageReduction;
+	*this = argument;
 	return *this;
 }
 

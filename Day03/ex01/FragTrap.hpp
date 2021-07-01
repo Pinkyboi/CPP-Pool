@@ -15,7 +15,7 @@
 #define MAX_HP 100
 #define MIN_HP 0
 #define ATTACKS_NUMBER 5
-#define NARRATOR "DUNGEON MASTER: "
+#define NARRATOR "FragTrap: "
 
 class FragTrap
 {
@@ -38,9 +38,6 @@ class FragTrap
 	public:
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &argument);
-		FragTrap(std::string name, int _hitPoints, int _energyPoints, int _maxHitPoints,
-									int _maxEnergyPoints, int _level, int _meleeAttackDamage,
-									int _rangedAttackDamage, int _specialdAttackDamage, int _armorDamageReduction);
 		FragTrap(void);
 		~FragTrap();
 		FragTrap	&operator=(const FragTrap &argument);

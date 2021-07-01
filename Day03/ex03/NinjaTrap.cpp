@@ -55,17 +55,7 @@ NinjaTrap &NinjaTrap::operator=(const NinjaTrap &argument)
 {
 	if (&argument == this)
 		return *this;
-	this->_name					= argument._name;
-	this->_hitPoints			= argument._hitPoints;
-	this->_hitPoints 			= argument._hitPoints;
-	this->_energyPoints 		= argument._energyPoints;
-	this->_maxHitPoints 		= argument._maxHitPoints;
-	this->_maxEnergyPoints 		= argument._maxEnergyPoints;
-	this->_level				= argument._level;
-	this->_meleeAttackDamage	= argument._meleeAttackDamage;
-	this->_rangedAttackDamage	= argument._rangedAttackDamage;
-	this->_specialdAttackDamage	= argument._specialdAttackDamage;
-	this->_armorDamageReduction	= argument._armorDamageReduction;
+    *this = argument;
 	return *this;
 }
 
