@@ -14,9 +14,17 @@
 
 Victim::Victim(std::string name):_name(name)
 {
-    std::cout << "Some random victim called";
+    std::cout << "Some random victim called ";
     std::cout << this->_name;
     std::cout << " just popped !" << std::endl;
+}
+
+Victim::Victim(const Victim &victimInstance)
+{
+    std::cout << this->_name << ", ";
+    std::cout << "the victim";
+    std::cout << "has been cloned." << std::endl;
+    *this = victimInstance;
 }
 
 Victim::~Victim()
@@ -36,6 +44,14 @@ void Victim::getPolymorphed() const
 {
     std::cout << this->_name;
     std::cout << " has been turned into a cute little sheep !" << std::endl;
+}
+
+Victim &Victim::operator=(const Victim &victimInstance)
+{
+    if(this == &victimInstance)
+        return *this;    
+    this->_name = victimInstance._name;
+    return *this;
 }
 
 std::ostream &operator <<(std::ostream &out, const Victim &Victim)

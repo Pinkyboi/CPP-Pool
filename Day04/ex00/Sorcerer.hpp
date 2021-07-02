@@ -21,14 +21,17 @@ class Sorcerer
     private:
         std::string _name;
         std::string _title;
+                    Sorcerer(void);
     public:
-        Sorcerer(std::string name = "Nomu", std::string title = "The great wolf");
-        ~Sorcerer(void);
+                    Sorcerer(std::string name, std::string title);
+                    Sorcerer(const Sorcerer &sorcererInstance);
+                    ~Sorcerer(void);
         std::string getSorcererName(void) const;
         std::string getSorcererTitle(void) const;
-        void polymorph(Victim const &Victim);      
+        void        polymorph(const Victim &victimInstance) const;
+        Sorcerer    &operator=(const Sorcerer &sorcererInstance);
 };
 
-std::ostream &operator<<(std::ostream &out, const Sorcerer &Sorcerer);
+std::ostream    &operator<<(std::ostream &out, const Sorcerer &Sorcerer);
 
 #endif

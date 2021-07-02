@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 17:26:29 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/01 17:26:31 by abenaiss         ###   ########.fr       */
+/*   Created: 2021/07/02 13:10:43 by abenaiss          #+#    #+#             */
+/*   Updated: 2021/07/02 13:10:45 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
-#include "Victim.hpp"
-#include "Sorcerer.hpp"
+#ifndef __POWER_FIST__
+#define __POWER_FIST__
 
-int main()
+#include "AWeapon.hpp"
+
+class PowerFist : public AWeapon
 {
-    Sorcerer robert("Robert", "the Magnificent");
-    Victim jim("Jimmy");
-    Victim *jimmy = new Peon("name");
-    Peon joe("Joe");
-    std::cout << robert << jim << joe;
-    robert.polymorph(jim);
-    robert.polymorph(joe);
-    delete jimmy;
-    return 0;
-}
+    public:
+        PowerFist(void);
+        PowerFist(const PowerFist &fistInstance);
+        ~PowerFist();
+        virtual void        attack() const;
+        PowerFist &operator=(const PowerFist &fistInstance);
+};
+
+#endif

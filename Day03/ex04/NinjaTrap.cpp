@@ -14,7 +14,7 @@
 
 NinjaTrap::NinjaTrap(std::string name):ClapTrap(name)
 {
-	std::cout << "[NinjaTrap] Default constructor is called." << std::endl;
+    std::cout << "[NinjaTrap] Default constructor is called." << std::endl;
     this->_energyPoints = 120;
     this->_maxEnergyPoints = 120;
     this->_meleeAttackDamage = 60;
@@ -23,32 +23,42 @@ NinjaTrap::NinjaTrap(std::string name):ClapTrap(name)
 
 NinjaTrap::NinjaTrap(void):ClapTrap()
 {
-	std::cout << "[NinjaTrap] Default constructor is called." << std::endl;
-	this->_name = "NinjaTrap";
+    std::cout << "[NinjaTrap] Default constructor is called." << std::endl;
+    this->_name = "NinjaTrap";
     this->_energyPoints = 120;
     this->_maxEnergyPoints = 120;
     this->_meleeAttackDamage = 60;
-	std::srand (std::time(NULL));
+    std::srand (std::time(NULL));
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap &argument)
 {
-	std::cout << "[NinjaTrap] Copy constructor is called." << std::endl;
-	*this = argument;
+    std::cout << "[NinjaTrap] Copy constructor is called." << std::endl;
+    *this = argument;
     std::srand (std::time(NULL));
 }
 
 NinjaTrap::~NinjaTrap()
 {
-	std::cout << "[NinjaTrap] Destructor constructor is called." << std::endl;
+    std::cout << "[NinjaTrap] Destructor constructor is called." << std::endl;
 }
 
 NinjaTrap &NinjaTrap::operator=(const NinjaTrap &argument)
 {
-	if (&argument == this)
-		return *this;
-	*this = argument;
-	return *this;
+    if (&argument == this)
+        return *this;
+    this->_name                 = argument._name;
+    this->_hitPoints            = argument._hitPoints;
+    this->_hitPoints            = argument._hitPoints;
+    this->_energyPoints         = argument._energyPoints;
+    this->_maxHitPoints         = argument._maxHitPoints;
+    this->_maxEnergyPoints      = argument._maxEnergyPoints;
+    this->_level                = argument._level;
+    this->_meleeAttackDamage    = argument._meleeAttackDamage;
+    this->_rangedAttackDamage   = argument._rangedAttackDamage;
+    this->_specialdAttackDamage = argument._specialdAttackDamage;
+    this->_armorDamageReduction = argument._armorDamageReduction;
+    return *this;
 }
 
 void    NinjaTrap::ninjaShoebox(const ClapTrap &ClapTrap)

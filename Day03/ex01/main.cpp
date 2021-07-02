@@ -14,25 +14,25 @@
 
 int main()
 {
-	// FragTrap fighter_1("othmane");
-	// FragTrap fighter_2("saniq");
-	// FragTrap fighter_3(fighter_1);
+	FragTrap fighter_1("othmane");
+	FragTrap fighter_2("saniq");
+	FragTrap fighter_3(fighter_1);
 	ScavTrap trapTrap("HII");
 
 	trapTrap.challengeNewcomer();
 
-	// fighter_3 = fighter_2;
+	fighter_3 = fighter_2;
 
-	// fighter_3.rangedAttack("The wall");
-	// fighter_3.meleeAttack("A slime");
-	// fighter_3.vaulthunter_dot_exe("An Orc");
-	// fighter_3.vaulthunter_dot_exe("A goblin");
-	// fighter_3.vaulthunter_dot_exe("A goblin");
-	// fighter_3.vaulthunter_dot_exe("A goblin");
-	// fighter_3.vaulthunter_dot_exe("A goblin");
-	// fighter_3.vaulthunter_dot_exe("A goblin");
-	// fighter_3.vaulthunter_dot_exe("A goblin");
-	// fighter_3.takeDamage(10);
-	// fighter_3.takeDamage(100);
-	// fighter_3.takeDamage(20);
+	fighter_3.rangedAttack("The wall");
+	fighter_3.meleeAttack("A slime");
+	fighter_3.vaulthunter_dot_exe("An Orc");
+	fighter_3.vaulthunter_dot_exe("A goblin");
+	fighter_3.vaulthunter_dot_exe("A goblin");
+	fighter_3.vaulthunter_dot_exe("A goblin");
+	fighter_3.vaulthunter_dot_exe("A goblin");
+	fighter_3.vaulthunter_dot_exe("A goblin");
+	fighter_3.vaulthunter_dot_exe("A goblin");
+	fighter_3.takeDamage(10);
+	fighter_3.takeDamage(100);
+	fighter_3.takeDamage(20);
 }

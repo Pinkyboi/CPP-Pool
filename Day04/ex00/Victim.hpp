@@ -21,9 +21,11 @@ class Victim
         std::string _name;        
     public:
         Victim(std::string name = "Charlie");
-        ~Victim();
+        Victim(const Victim &victimInstance);
+        virtual ~Victim();
         std::string getVictimName(void) const;
         virtual void getPolymorphed() const;
+        Victim &operator=(const Victim &victimInstance);
 };
 
 std::ostream &operator<<(std::ostream &out, const Victim &Victim);

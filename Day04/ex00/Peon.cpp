@@ -18,9 +18,25 @@ Peon::Peon(std::string name) : Victim(name)
     std::cout << "Zog zog." << std::endl;    
 }
 
+Peon::Peon(const Peon &peonInstance)
+{
+    std::cout << this->_name << ", ";
+    std::cout << "the Peon";
+    std::cout << "has been cloned." << std::endl;
+    *this = peonInstance;
+}
+
 Peon::~Peon()
 {
     std::cout << "Bleuark..." << std::endl;
+}
+
+Peon &Peon::operator=(const Peon &peonInstance)
+{
+    if(this == &peonInstance)
+        return *this;
+    this->_name = peonInstance._name;
+    return *this;
 }
 
 void Peon::getPolymorphed() const

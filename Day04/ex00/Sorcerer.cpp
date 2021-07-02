@@ -20,6 +20,19 @@ Sorcerer::Sorcerer(std::string name, std::string title): _name(name), _title(tit
     std::cout << "is born !" << std::endl;
 }
 
+Sorcerer::Sorcerer(void)
+{
+    std::cout << "An unnamed sorcerer, sad, pitiful being." << std::endl;
+}
+
+Sorcerer::Sorcerer(const Sorcerer &sorcererInstance)
+{
+    std::cout << this->_name << ", ";
+    std::cout << this->_title << ", ";
+    std::cout << "has been cloned." << std::endl;
+    *this = sorcererInstance;
+}
+
 Sorcerer::~Sorcerer()
 {
     std::cout << this->_name << ", ";
@@ -37,9 +50,19 @@ std::string Sorcerer::getSorcererTitle(void) const
     return this->_title;
 }
 
-void Sorcerer::polymorph(Victim const &Victim)
+void Sorcerer::polymorph(const Victim &victimInstance) const
 {
-    Victim.getPolymorphed();
+    victimInstance.getPolymorphed();
+}
+
+Sorcerer &Sorcerer::operator=(const Sorcerer &sorcererInstance)
+{
+
+    if (this == &sorcererInstance)
+        return *this;
+    this->_name = sorcererInstance._name;
+    this->_title = sorcererInstance._title;
+    return *this;
 }
 
 std::ostream &operator<<(std::ostream &out, const Sorcerer &Sorcerer)

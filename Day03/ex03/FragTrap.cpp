@@ -14,58 +14,68 @@
 
 const std::string FragTrap::_attackPool[ATTACKS_NUMBER] = 
 {
-	"by casting \"EXPLOSIOOON!\"",
-	"by casting \"Purify\"",
-	"slashing with The Power Sword ! (heyyeyaaeyaaaeyaeyaa)",
-	"slashing with The Blade of Chaos",
-	"launching a giant boulder",
+    "by casting \"EXPLOSIOOON!\"",
+    "by casting \"Purify\"",
+    "slashing with The Power Sword ! (heyyeyaaeyaaaeyaeyaa)",
+    "slashing with The Blade of Chaos",
+    "launching a giant boulder",
 };
 
 FragTrap::FragTrap(std::string name):ClapTrap(name)
 {
-	std::cout << "[FragTrap] Default constructor is called." << std::endl;
+    std::cout << "[FragTrap] Default constructor is called." << std::endl;
     this->_meleeAttackDamage = 30;
     this->_rangedAttackDamage = 20;
     this->_armorDamageReduction = 5;
-	std::srand (std::time(NULL));
+    std::srand (std::time(NULL));
 }
 
 FragTrap::FragTrap(void):ClapTrap()
 {
-	std::cout << "[FragTrap] Default constructor is called." << std::endl;
-	this->_name = "FragTrap";
+    std::cout << "[FragTrap] Default constructor is called." << std::endl;
+    this->_name = "FragTrap";
     this->_meleeAttackDamage = 30;
     this->_rangedAttackDamage = 20;
     this->_armorDamageReduction = 5;
-	std::srand (std::time(NULL));
+    std::srand (std::time(NULL));
 }
 
 FragTrap::FragTrap(const FragTrap &argument)
 {
-	std::cout << "[FragTrap] Copy constructor is called." << std::endl;
-	*this = argument;
-	std::srand (std::time(NULL));
+    std::cout << "[FragTrap] Copy constructor is called." << std::endl;
+    *this = argument;
+    std::srand (std::time(NULL));
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "[FragTrap] Destructor constructor is called." << std::endl;
+    std::cout << "[FragTrap] Destructor constructor is called." << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &argument)
 {
-	if (&argument == this)
-		return *this;
-	*this = argument;
-	return *this;
+    if (&argument == this)
+        return *this;
+    this->_name                 = argument._name;
+    this->_hitPoints            = argument._hitPoints;
+    this->_hitPoints            = argument._hitPoints;
+    this->_energyPoints         = argument._energyPoints;
+    this->_maxHitPoints         = argument._maxHitPoints;
+    this->_maxEnergyPoints      = argument._maxEnergyPoints;
+    this->_level                = argument._level;
+    this->_meleeAttackDamage    = argument._meleeAttackDamage;
+    this->_rangedAttackDamage   = argument._rangedAttackDamage;
+    this->_specialdAttackDamage = argument._specialdAttackDamage;
+    this->_armorDamageReduction = argument._armorDamageReduction;
+    return *this;
 }
-void	FragTrap::vaulthunter_dot_exe(std::string const & target)
+void    FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-	if(this->_maxEnergyPoints >= 25)
-	{
-		this->_maxEnergyPoints -= 25;
-		displayAttack(target, _attackPool[(int)(rand() % 5)], this->_specialdAttackDamage);
-	}
-	else
-		std::cout << this->_narrator << "Unable to cast a spell, a long rest may help." << std::endl;
+    if(this->_maxEnergyPoints >= 25)
+    {
+        this->_maxEnergyPoints -= 25;
+        displayAttack(target, _attackPool[(int)(rand() % 5)], this->_specialdAttackDamage);
+    }
+    else
+        std::cout << this->_narrator << "Unable to cast a spell, a long rest may help." << std::endl;
 }

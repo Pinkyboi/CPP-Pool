@@ -15,65 +15,75 @@
 
 const std::string ScavTrap::_challengesList[CHALLENGES_NUMBER] = 
 {
-	"slay the Nemean lion.",
-	"slay the nine-headed Lernaean Hydra.",
-	"capture the Ceryneian Hind.",
-	"capture the Erymanthian Boar.",
-	"clean the Augean stables in a single day.",
-	"slay the Stymphalian birds.",
-	"capture the Cretan Bull.",
-	"steal the Mares of Diomedes.",
-	"obtain the girdle of Hippolyta, queen of the Amazons.",
-	"obtain the cattle of the three-bodied giant Geryon.",
-	"steal three of the golden apples of the Hesperides.",
-	"capture and bring back Cerberus.",
+    "slay the Nemean lion.",
+    "slay the nine-headed Lernaean Hydra.",
+    "capture the Ceryneian Hind.",
+    "capture the Erymanthian Boar.",
+    "clean the Augean stables in a single day.",
+    "slay the Stymphalian birds.",
+    "capture the Cretan Bull.",
+    "steal the Mares of Diomedes.",
+    "obtain the girdle of Hippolyta, queen of the Amazons.",
+    "obtain the cattle of the three-bodied giant Geryon.",
+    "steal three of the golden apples of the Hesperides.",
+    "capture and bring back Cerberus.",
 };
 
 ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 {
-	std::cout << "[ScavTrap] Default constructor is called." << std::endl;
+    std::cout << "[ScavTrap] Default constructor is called." << std::endl;
     this->_energyPoints = 50;
     this->_maxEnergyPoints = 50;
     this->_meleeAttackDamage = 20;
     this->_rangedAttackDamage = 15;
     this->_armorDamageReduction = 3;
-	std::srand (std::time(NULL));
+    std::srand (std::time(NULL));
 }
 
 ScavTrap::ScavTrap(void):ClapTrap()
 {
-	std::cout << "[ScavTrap] Default constructor is called." << std::endl;
-	this->_name = "ScavTrap";
+    std::cout << "[ScavTrap] Default constructor is called." << std::endl;
+    this->_name = "ScavTrap";
     this->_energyPoints = 50;
     this->_maxEnergyPoints = 50;
     this->_meleeAttackDamage = 20;
     this->_rangedAttackDamage = 15;
     this->_armorDamageReduction = 3;
-	std::srand (std::time(NULL));
+    std::srand (std::time(NULL));
 }
 
 ScavTrap::ScavTrap(ScavTrap &argument)
 {
-	std::cout << "[ScavTrap] Copy constructor is called." << std::endl;
-	*this = argument;
-	std::srand (std::time(NULL));
+    std::cout << "[ScavTrap] Copy constructor is called." << std::endl;
+    *this = argument;
+    std::srand (std::time(NULL));
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "[ScavTrap] Destructor constructor is called." << std::endl;
+    std::cout << "[ScavTrap] Destructor constructor is called." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &argument)
 {
-	if (&argument == this)
-		return *this;
-	*this = argument;
-	return *this;
+    if (&argument == this)
+        return *this;
+    this->_name                 = argument._name;
+    this->_hitPoints            = argument._hitPoints;
+    this->_hitPoints            = argument._hitPoints;
+    this->_energyPoints         = argument._energyPoints;
+    this->_maxHitPoints         = argument._maxHitPoints;
+    this->_maxEnergyPoints      = argument._maxEnergyPoints;
+    this->_level                = argument._level;
+    this->_meleeAttackDamage    = argument._meleeAttackDamage;
+    this->_rangedAttackDamage   = argument._rangedAttackDamage;
+    this->_specialdAttackDamage = argument._specialdAttackDamage;
+    this->_armorDamageReduction = argument._armorDamageReduction;
+    return *this;
 }
 
 void ScavTrap::challengeNewcomer()
 {
-	std::cout << this->_name;
-	std::cout << " challenges you to : " << this->_challengesList[rand() % CHALLENGES_NUMBER] << std::endl;
+    std::cout << this->_name;
+    std::cout << " challenges you to : " << this->_challengesList[rand() % CHALLENGES_NUMBER] << std::endl;
 }
