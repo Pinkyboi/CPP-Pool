@@ -10,4 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __RAD_SCORPION__
+#define __RAD_SCORPION__
 
+#include "Enemy.hpp"
+
+class RadScorpion : public Enemy
+{
+    private:
+        
+    public:
+                    RadScorpion(void);
+                    RadScorpion(const RadScorpion &scorpionInstance);
+                    ~RadScorpion();
+        void        takeDamage(int damagePoints);
+        RadScorpion &operator=(const RadScorpion &scorpionInstance);
+};
+
+#endif

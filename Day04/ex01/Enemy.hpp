@@ -28,7 +28,7 @@ class Enemy
         int                 getHP() const;
         void                setType(std::string type);
         void                setHP(unsigned int hp);
-        virtual void        takeDamage(int) = 0;
+        virtual void        takeDamage(int damagePoints) = 0;
         ~Enemy(void);
         Enemy&              operator=(const Enemy &enemyInstance);
 };

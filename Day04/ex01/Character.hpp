@@ -10,4 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __CHRACTER__
+#define __CHARACTER__
 
+#include <iostream>
+#include "AWeapon.hpp"
+#include "Enemy.hpp"
+
+class Character
+{
+    private:
+        const unsigned int  _maxAP = 40;
+        std::string         _name;
+        unsigned int        _APNumber;
+        // unsigned int        _weaponAPCost;
+        // unsigned int        _weaponDamage;
+        AWeapon             *_equipedWeapon; 
+        Character(void);
+    public:
+                            Character(const std::string &name);
+                            Character(const Character &characterInstance);
+                            ~Character(void);
+        void                recoverAP(void);
+        void                equip(AWeapon *weapon);
+        void                attack(Enemy *attackedEnemy);
+        AWeapon             *getWeapon() const;
+        std::string         getName(void) const;
+        unsigned int        getAP(void) const;
+        Character           &operator=(const Character &characterInstance);
+};
+
+std::ostream &operator<<(std::ostream &out, const Character &characterInstance);
+    
+#endif

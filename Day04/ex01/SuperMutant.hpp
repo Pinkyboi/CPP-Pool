@@ -10,4 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __SUPER_MUTANT__
+#define __SUPER_MUTANT__
 
+#include "Enemy.hpp"
+
+class SuperMutant : public Enemy
+{
+    private:
+        
+    public:
+                    SuperMutant(void);
+                    SuperMutant(const SuperMutant &mutantInstance);
+                    ~SuperMutant();
+        void        takeDamage(int damagePoints);
+        SuperMutant &operator=(const SuperMutant &mutantInstance);
+};
+
+#endif

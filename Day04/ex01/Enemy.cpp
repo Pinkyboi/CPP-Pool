@@ -49,7 +49,7 @@ void Enemy::setType(std::string type)
 
 void Enemy::setHP(unsigned int hp)
 {
-    return this->_hp = hp;
+    this->_hp = hp;
 }
 
 Enemy& Enemy::operator=(const Enemy &enemyInstance)
