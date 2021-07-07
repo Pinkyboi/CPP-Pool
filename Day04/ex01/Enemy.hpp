@@ -18,7 +18,7 @@
 class Enemy
 {
     private:
-        unsigned int    _hp;
+        int             _hp;
         std::string     _type;
     public:
                             Enemy(void);
@@ -27,9 +27,9 @@ class Enemy
         std::string         getType() const;
         int                 getHP() const;
         void                setType(std::string type);
-        void                setHP(unsigned int hp);
+        void                setHP(int hp);
         virtual void        takeDamage(int damagePoints) = 0;
-        ~Enemy(void);
+        virtual             ~Enemy(void);
         Enemy&              operator=(const Enemy &enemyInstance);
 };
 

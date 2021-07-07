@@ -31,10 +31,11 @@ SuperMutant::~SuperMutant()
 
 void       SuperMutant::takeDamage(int damagePoints)
 {
-    if(!damagePoints)
+    const int monsterHp = this->getHP();
+    if(damagePoints && monsterHp)
     {
-        const int finalDamage = damagePoints - 3;
-        this->setHP(this->getHP() - finalDamage);
+        damagePoints -= 3;
+        this->setHP((monsterHp - damagePoints > 0) ? monsterHp - damagePoints : 0 );
         if(!this->getHP())
             std::cout << "Aaargh ..." << std::endl;
     }

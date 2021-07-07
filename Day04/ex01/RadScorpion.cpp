@@ -34,8 +34,8 @@ void       RadScorpion::takeDamage(int damagePoints)
     const int monsterHp = this->getHP();
     if (damagePoints && monsterHp)
     {
-        this->setHP(monsterHp - damagePoints);
-        if (!monsterHp)
+        this->setHP((monsterHp - damagePoints > 0) ? monsterHp - damagePoints : 0 );
+        if (!this->getHP())
             std::cout << "* SPROTCH *" << std::endl;
     }
 }

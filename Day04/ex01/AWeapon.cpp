@@ -50,17 +50,17 @@ std::string AWeapon::getName(void) const
     return this->_name;
 }
 
-int         AWeapon::setAPCost(unsigned int apCost)
+void         AWeapon::setAPCost(unsigned int apCost)
 {
     this->_apCost = apCost;
 }
 
-int         AWeapon::setDamage(unsigned int damagePoint)
+void         AWeapon::setDamage(unsigned int damagePoint)
 {
     this->_damagePoint = damagePoint;
 }
 
-std::string AWeapon::setName(std::string name)
+void AWeapon::setName(std::string name)
 {
     this->_name = name;
 }

@@ -47,7 +47,7 @@ void Enemy::setType(std::string type)
     this->_type = type;
 }
 
-void Enemy::setHP(unsigned int hp)
+void Enemy::setHP(int hp)
 {
     this->_hp = hp;
 }

@@ -38,15 +38,22 @@ void    Character::equip(AWeapon *weapon)
 
 void    Character::attack(Enemy *attackedEnemy)
 {
-    if(this-_APNumber - this->_equipedWeapon->getAPCost() > 0)
+    const int newAPNumber = this->_APNumber - this->_equipedWeapon->getAPCost(); 
+    if(attackedEnemy && newAPNumber > 0)
     {
+        std::cout << this->_name << " attacks " << attackedEnemy->getType()
+            << " with a " << this->_equipedWeapon->getName() << std::endl;
+        this->_equipedWeapon->attack();
         attackedEnemy->takeDamage(this->_equipedWeapon->getDamage());
-        this->_APNumber -= this->_equipedWeapon->getAPCost();
-        if(!attackedEnemy->getHP())
+        this->_APNumber = newAPNumber;
+        if(!(attackedEnemy->getHP()))
+        {
             delete attackedEnemy;
+            attackedEnemy = NULL;
+        }
     }
     else
-        std::cout << this->_name + " doesn't have enough AP to attack" << std::endl;
+        std::cout << this->_name + " doesn't have enough AP to attack." << std::endl;
 }
 
 void    Character::recoverAP(void)
@@ -56,14 +63,19 @@ void    Character::recoverAP(void)
         this->_APNumber = _maxAP;
 }
 
-unsigned int Character::getAP() const
+unsigned int Character::getAP(void) const
 {
     return this->_APNumber;
 }
 
-AWeapon* Character::getWeapon() const
+AWeapon* Character::getWeapon(void) const
 {
     return this->_equipedWeapon;
+}
+
+std::string     Character::getName(void) const
+{
+    return this->_name;
 }
 
 Character &Character::operator=(const Character &characterInstance)
@@ -78,9 +90,9 @@ Character &Character::operator=(const Character &characterInstance)
 
 std::ostream  &operator<<(std::ostream &out, const Character &characterInstance)
 {
-    out << "NAME has " << characterInstance.getAP() << " AP and ";
+    out << characterInstance.getName() <<  " has " << characterInstance.getAP() << " AP and ";
     if (characterInstance.getWeapon())
-        out  << "wields a" << characterInstance.getWeapon()->getName() << std::endl;
+        out  << "wields a " << characterInstance.getWeapon()->getName() << std::endl;
     else
         out << " is unarmed" << std::endl;
     return out;

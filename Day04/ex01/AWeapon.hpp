@@ -28,9 +28,9 @@ class AWeapon
         int                 getAPCost(void) const;
         int                 getDamage(void) const;
         std::string         getName(void) const;
-        int                 setAPCost(unsigned int apCost);
-        int                 setDamage(unsigned int damagePoint);
-        std::string         setName(std::string name);
+        void                setAPCost(unsigned int apCost);
+        void                setDamage(unsigned int damagePoint);
+        void                setName(std::string name);
         virtual void        attack() const = 0;
         virtual             ~AWeapon();
         AWeapon &operator=(const AWeapon &weaponInstance);
