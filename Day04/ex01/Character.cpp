@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:13:05 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/02 13:13:06 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:57:46 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ void    Character::attack(Enemy *attackedEnemy)
         attackedEnemy->takeDamage(this->_equipedWeapon->getDamage());
         this->_APNumber = newAPNumber;
         if(!(attackedEnemy->getHP()))
-        {
             delete attackedEnemy;
-            attackedEnemy = NULL;
-        }
     }
     else
         std::cout << this->_name + " doesn't have enough AP to attack." << std::endl;

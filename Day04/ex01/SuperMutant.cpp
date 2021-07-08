@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SuperMutant.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:12:04 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/02 13:12:06 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:48:07 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,13 @@ SuperMutant::SuperMutant(const SuperMutant &mutantInstance)
 
 SuperMutant::~SuperMutant()
 {
+    std::cout << "Aaargh ..." << std::endl;
 }
 
 void       SuperMutant::takeDamage(int damagePoints)
 {
-    const int monsterHp = this->getHP();
-    if(damagePoints && monsterHp)
-    {
-        damagePoints -= 3;
-        this->setHP((monsterHp - damagePoints > 0) ? monsterHp - damagePoints : 0 );
-        if(!this->getHP())
-            std::cout << "Aaargh ..." << std::endl;
-    }
+    damagePoints -= 3;
+    Enemy::takeDamage(damagePoints);
 }
 
 SuperMutant &SuperMutant::operator=(const SuperMutant &mutantInstance)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:11:22 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/02 13:11:32 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:40:54 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Enemy
         int                 getHP() const;
         void                setType(std::string type);
         void                setHP(int hp);
-        virtual void        takeDamage(int damagePoints) = 0;
+        virtual void        takeDamage(int damagePoints);
         virtual             ~Enemy(void);
         Enemy&              operator=(const Enemy &enemyInstance);
 };

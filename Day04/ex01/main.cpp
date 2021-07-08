@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:13:33 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/02 13:13:35 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:59:03 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,8 @@ int main()
     std::cout << *zaz;
     zaz->attack(b);
     std::cout << *zaz;
-    zaz->attack(b);
-    // b = NULL;
-    std::cout << b << std::endl;
-    // std::cout << *zaz;
-    zaz->attack(b);
-    std::cout << b << std::endl;
-    // std::cout << *zaz;
-    //     zaz->attack(b);
-    // std::cout << *zaz;
+    // zaz->attack(b);
+    // zaz->attack(b);
     return 0;
 }
 

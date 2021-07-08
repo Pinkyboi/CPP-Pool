@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RadScorpion.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:12:42 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/02 13:12:43 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:46:49 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,12 @@ RadScorpion::RadScorpion(const RadScorpion &scorpionInstance)
 
 RadScorpion::~RadScorpion()
 {
+    std::cout << "* SPROTCH *" << std::endl;
 }
 
 void       RadScorpion::takeDamage(int damagePoints)
 {
-    const int monsterHp = this->getHP();
-    if (damagePoints && monsterHp)
-    {
-        this->setHP((monsterHp - damagePoints > 0) ? monsterHp - damagePoints : 0 );
-        if (!this->getHP())
-            std::cout << "* SPROTCH *" << std::endl;
-    }
+    Enemy::takeDamage(damagePoints);
 }
 
 RadScorpion &RadScorpion::operator=(const RadScorpion &mutantInstance)

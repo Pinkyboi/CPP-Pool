@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Enemy.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:11:04 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/02 13:11:18 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:46:39 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ Enemy::Enemy(const Enemy &enemyInstance)
 {
     std::cout << "A \"" + enemyInstance._type + "\" clone has been created !" << std::endl;
     *this = enemyInstance;
+}
+
+void    Enemy::takeDamage(int damagePoints)
+{
+  const int monsterHp = this->getHP();
+  if (damagePoints > 0)
+        this->setHP((monsterHp - damagePoints > 0) ? monsterHp - damagePoints : 0 );  
 }
 
 std::string Enemy::getType(void) const
