@@ -20,7 +20,7 @@
 class Character
 {
     private:
-        static const unsigned int   _maxAP = 40;
+        static const int            _maxAP = 40;
         std::string                 _name;
         int                         _APNumber;
         // unsigned int        _weaponAPCost;

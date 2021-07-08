@@ -12,7 +12,7 @@
 
 #include "AWeapon.hpp"
 
-AWeapon::AWeapon(void):_name("unnamed"),_damagePoint(42069),_apCost(0)
+AWeapon::AWeapon(void):_name("unnamed"),_apCost(0),_damagePoint(42069)
 {
     std::cout <<    "You fool created the ultimate weapon"
                     "prepare yourself to face the consequences !";

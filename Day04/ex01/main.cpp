@@ -51,8 +51,8 @@ int main()
     std::cout << *zaz;
     zaz->attack(b);
     std::cout << *zaz;
-    // zaz->attack(b);
-    // zaz->attack(b);
+    zaz->attack(b);
+    zaz->attack(b);
     return 0;
 }
 

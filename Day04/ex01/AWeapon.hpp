@@ -19,8 +19,8 @@ class AWeapon
 {
     private:
         std::string         _name;
-        unsigned int        _damagePoint;
-        unsigned int        _apCost;
+        int                 _apCost;
+        int                 _damagePoint;
     public:
                             AWeapon(void);
                             AWeapon(const AWeapon &weaponInstance);

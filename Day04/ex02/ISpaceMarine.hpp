@@ -15,11 +15,14 @@
 
 class ISpaceMarine
 {
-    private:
-        
     public:
-        ISpaceMarine(void);
-        ~ISpaceMarine(void);
+        ISpaceMarine            *next = 0;
+    public:
+        virtual                 ~ISpaceMarine(void) {} // output : "Aaargh..."
+        virtual ISpaceMarine*   clone() const = 0;
+        virtual void            battleCry(void) const = 0;
+        virtual void            rangedAttack(void) const = 0;
+        virtual void            meleeAttack(void) const = 0;
 };
 
 #endif

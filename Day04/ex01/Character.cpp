@@ -38,19 +38,22 @@ void    Character::equip(AWeapon *weapon)
 
 void    Character::attack(Enemy *attackedEnemy)
 {
-    const int newAPNumber = this->_APNumber - this->_equipedWeapon->getAPCost(); 
-    if(attackedEnemy && newAPNumber > 0)
+    if(this->_equipedWeapon)
     {
-        std::cout << this->_name << " attacks " << attackedEnemy->getType()
-            << " with a " << this->_equipedWeapon->getName() << std::endl;
-        this->_equipedWeapon->attack();
-        attackedEnemy->takeDamage(this->_equipedWeapon->getDamage());
-        this->_APNumber = newAPNumber;
-        if(!(attackedEnemy->getHP()))
-            delete attackedEnemy;
+        const int newAPNumber = this->_APNumber - this->_equipedWeapon->getAPCost(); 
+        if(newAPNumber < 0)
+            std::cout << this->_name + " doesn't have enough AP to attack." << std::endl;
+        else
+        {
+            std::cout << this->_name << " attacks " << attackedEnemy->getType()
+                        << " with a " << this->_equipedWeapon->getName() << std::endl;
+            this->_equipedWeapon->attack();
+            attackedEnemy->takeDamage(this->_equipedWeapon->getDamage());
+            this->_APNumber = newAPNumber;
+            if(!(attackedEnemy->getHP()))
+                delete attackedEnemy;
+        }
     }
-    else
-        std::cout << this->_name + " doesn't have enough AP to attack." << std::endl;
 }
 
 void    Character::recoverAP(void)
