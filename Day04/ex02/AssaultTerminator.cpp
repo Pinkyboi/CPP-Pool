@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AssaultTerminator.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:56:20 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/04 16:56:26 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:16:10 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ ISpaceMarine *AssaultTerminator::clone(void) const
 AssaultTerminator &AssaultTerminator::operator=(const AssaultTerminator &marineInstance)
 {
     if(this == &marineInstance)
-        *this;
+        return *this;
     this->_battleCry = marineInstance._battleCry;
     this->_rangedAttack = marineInstance._rangedAttack;
     this->_meleeAttack = marineInstance._meleeAttack;

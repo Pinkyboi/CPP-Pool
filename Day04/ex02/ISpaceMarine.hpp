@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:56:57 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/04 16:56:58 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/08 19:34:22 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class ISpaceMarine
 {
     public:
-        ISpaceMarine            *next = 0;
+        ISpaceMarine            *next;
     public:
         virtual                 ~ISpaceMarine(void) {} // output : "Aaargh..."
         virtual ISpaceMarine*   clone() const = 0;

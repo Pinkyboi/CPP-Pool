@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   TacticalMarine.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 16:58:03 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/04 16:58:04 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/08 18:17:03 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ ISpaceMarine *TacticalMarine::clone(void) const
 TacticalMarine &TacticalMarine::operator=(const TacticalMarine &marineInstance)
 {
     if(this == &marineInstance)
-        *this;
+        return *this;
     this->_battleCry = marineInstance._battleCry;
     this->_rangedAttack = marineInstance._rangedAttack;
     this->_meleeAttack = marineInstance._meleeAttack;
