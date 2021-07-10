@@ -12,7 +12,7 @@
 
 #include "Squad.hpp"
 
-Squad::Squad(void):_listHead(0)
+Squad::Squad(void):_listHead(nullptr),_armyNumber(0)
 {
 }
 
@@ -23,54 +23,72 @@ Squad::~Squad()
 
 int Squad::getCount(void) const
 {
-    ISpaceMarine *headClone = _listHead;
-    int  armyNumber = 0;
+    return this->_armyNumber;
+}
+
+void    Squad::clearUnitList()
+{
+    UnitList *headClone = this->_listHead;
     while (headClone)
     {
-        armyNumber++;
+        delete headClone->marineUnit;
         headClone = headClone->next;
     }
-    return armyNumber;
+    this->_listHead = nullptr;
+}
+
+Squad::UnitList *Squad::cloneUnitList(void)
+{
+    UnitList *headClone = this->_listHead;
+    UnitList *listClone = createUnitNode(this->_listHead->marineUnit);
+    UnitList *listCloneSave = listClone;
+    headClone = headClone->next;
+    while(headClone)
+    {
+        listClone = createUnitNode(headClone->marineUnit);
+        headClone = headClone->next;
+        listClone = listClone->next;
+    }
+    return listCloneSave;
 }
 
 ISpaceMarine* Squad::getUnit(int unitIndex) const
 {
-    ISpaceMarine *headClone = _listHead;
-    int  armyNumber;
-    while (headClone)
+    UnitList *headClone = this->_listHead;
+
+    for (int armyNumber = 0; headClone; armyNumber++)
     {
-        if(armyNumber == unitIndex)
-            return headClone;
-        armyNumber++;
+        if (armyNumber == unitIndex)
+            return headClone->marineUnit;
         headClone = headClone->next;
     }
     return 0;
 }
 
+Squad::UnitList*    Squad::createUnitNode(ISpaceMarine *newUnit)
+{
+    UnitList *node= new UnitList;
+    node->marineUnit = newUnit;
+    node->next = nullptr;
+    return node;
+}
 
 int Squad::push(ISpaceMarine* newUnit)
 {
-    ISpaceMarine *headClone;
-    bool exists = false;
-    int  armyNumber = 0;
-
-    newUnit->next = 0;
-    if(!_listHead)
-        _listHead = newUnit;
+    if(!this->_listHead)
+        this->_listHead = createUnitNode(newUnit);
     else
     {
-        headClone = _listHead;
+        UnitList *headClone = this->_listHead;
         while (headClone)
         {
-            if(newUnit == headClone)
-                exists = true;
-            armyNumber++;
+            if (newUnit == headClone->marineUnit)
+                return this->_armyNumber;
+            if (!headClone->next)
+                break ;
             headClone = headClone->next;
         }
-        if (!exists){
-            headClone = newUnit;
-            armyNumber++;
-        }
+        headClone->next = createUnitNode(newUnit);
     }
-    return armyNumber;
+    return this->_armyNumber++;
 }

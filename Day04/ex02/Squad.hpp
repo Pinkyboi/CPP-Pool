@@ -14,17 +14,27 @@
 #define __SQUAD__
 
 #include "ISquad.hpp"
-
+#include <iostream>
 class Squad : public ISquad
 {
     private:
-        ISpaceMarine            *_listHead;
+        typedef struct          UnitList
+        {
+            ISpaceMarine        *marineUnit;    
+            struct UnitList     *next;    
+        }                       UnitList;
+        UnitList                *_listHead;
+        int                     _armyNumber;
+        UnitList*               createUnitNode(ISpaceMarine *newUnit);
+        void                    clearUnitList(void);
+        UnitList*               cloneUnitList(void);
     public:
         Squad(void);
         ~Squad();
         virtual int             getCount() const; //return number of units in the squad
         virtual ISpaceMarine*   getUnit(int unitIndex) const; //Return pointer to the Nth unit (NULL is unit number is 0)
         virtual int             push(ISpaceMarine* newUnit); // add a new unit to the list if its not NULL and not already in the list
+        
 };
 
 #endif

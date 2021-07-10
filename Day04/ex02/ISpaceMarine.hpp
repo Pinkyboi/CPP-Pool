@@ -16,8 +16,6 @@
 class ISpaceMarine
 {
     public:
-        ISpaceMarine            *next;
-    public:
         virtual                 ~ISpaceMarine(void) {} // output : "Aaargh..."
         virtual ISpaceMarine*   clone() const = 0;
         virtual void            battleCry(void) const = 0;
