@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 16:57:35 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/13 18:36:03 by abenaiss         ###   ########.fr       */
+/*   Created: 2021/07/13 17:49:48 by abenaiss          #+#    #+#             */
+/*   Updated: 2021/07/13 18:11:53 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AssaultTerminator.hpp"
-#include "Squad.hpp"
-#include "TacticalMarine.hpp"
-#include <unistd.h>
+#ifndef __I_CHARACTER__
+#define __I_CHARACTER__
 
-
-int main()
+class ICharacter
 {
-ISquad*  A = new Squad;
-ISquad*  B = new Squad;
-
-    ISpaceMarine* a = new AssaultTerminator;
-    // ISpaceMarine* a = new AssaultTerminator;
-    (void)A;
-    A->push(a);
-    printf("adresss %p\n", a);
-    a = nullptr;
-    *A = *B;
-    delete a;
-
-    delete A;
-    delete B;
-
-}
+    public:
+        virtual ~ICharacter() {}
+        virtual std::string const & getName() const = 0;
+        virtual void equip(AMateria* m) = 0;
+        virtual void unequip(int idx) = 0;
+        virtual void use(int idx, ICharacter& target) = 0;
+};
+#endif

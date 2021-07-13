@@ -48,7 +48,6 @@ AssaultTerminator::~AssaultTerminator(void)
 ISpaceMarine *AssaultTerminator::clone(void) const
 {
     AssaultTerminator *spaceClone = new AssaultTerminator();
-    *spaceClone = *this;
     return spaceClone;
 }
 

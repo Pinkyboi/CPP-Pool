@@ -12,13 +12,28 @@
 
 #include "Squad.hpp"
 
-Squad::Squad(void):_listHead(nullptr),_armyNumber(0)
+Squad::Squad(void): _listHead(0),_armyNumber(0)
 {
 }
 
+Squad::Squad(const Squad &squadInstance):_listHead(0),_armyNumber(0)
+{
+    *this = squadInstance;
+}
+
+Squad& Squad::operator=(const Squad &SquadInstance)
+{
+    if(this == &SquadInstance)
+        return *this;
+    clearUnitList();
+    this->_listHead = SquadInstance.cloneUnitList();
+    this->_armyNumber = SquadInstance.getCount();
+    return *this;
+}
 
 Squad::~Squad()
 {
+    clearUnitList();
 }
 
 int Squad::getCount(void) const
@@ -26,28 +41,33 @@ int Squad::getCount(void) const
     return this->_armyNumber;
 }
 
-void    Squad::clearUnitList()
+void    Squad::clearUnitList(void)
 {
-    UnitList *headClone = this->_listHead;
-    while (headClone)
+    UnitList *nextNode;
+    while (this->_listHead)
     {
-        delete headClone->marineUnit;
-        headClone = headClone->next;
+        nextNode = this->_listHead->next;
+        delete this->_listHead->marineUnit;
+        delete this->_listHead;
+        this->_listHead->marineUnit = nullptr;
+        this->_listHead = nullptr;
+        this->_listHead = nextNode;
     }
-    this->_listHead = nullptr;
+    this->_armyNumber = 0;
 }
 
-Squad::UnitList *Squad::cloneUnitList(void)
+Squad::UnitList *Squad::cloneUnitList(void) const
 {
-    UnitList *headClone = this->_listHead;
-    UnitList *listClone = createUnitNode(this->_listHead->marineUnit);
+    if(!this->_listHead)
+        return nullptr;
+    UnitList *headClone     = this->_listHead;
+    UnitList *listClone     = createUnitNode(this->_listHead->marineUnit->clone());
     UnitList *listCloneSave = listClone;
-    headClone = headClone->next;
+    headClone               = headClone->next;
     while(headClone)
     {
-        listClone = createUnitNode(headClone->marineUnit);
+        listClone = listClone->next = createUnitNode(headClone->marineUnit->clone());
         headClone = headClone->next;
-        listClone = listClone->next;
     }
     return listCloneSave;
 }
@@ -65,7 +85,7 @@ ISpaceMarine* Squad::getUnit(int unitIndex) const
     return 0;
 }
 
-Squad::UnitList*    Squad::createUnitNode(ISpaceMarine *newUnit)
+Squad::UnitList*    Squad::createUnitNode(ISpaceMarine *newUnit) const
 {
     UnitList *node= new UnitList;
     node->marineUnit = newUnit;
@@ -90,5 +110,5 @@ int Squad::push(ISpaceMarine* newUnit)
         }
         headClone->next = createUnitNode(newUnit);
     }
-    return this->_armyNumber++;
+    return ++this->_armyNumber;
 }

@@ -25,16 +25,17 @@ class Squad : public ISquad
         }                       UnitList;
         UnitList                *_listHead;
         int                     _armyNumber;
-        UnitList*               createUnitNode(ISpaceMarine *newUnit);
+        UnitList*               createUnitNode(ISpaceMarine *newUnit) const;
         void                    clearUnitList(void);
-        UnitList*               cloneUnitList(void);
+        UnitList*               cloneUnitList(void) const;
     public:
         Squad(void);
+        Squad(const Squad &squadInstance);
         ~Squad();
         virtual int             getCount() const; //return number of units in the squad
         virtual ISpaceMarine*   getUnit(int unitIndex) const; //Return pointer to the Nth unit (NULL is unit number is 0)
         virtual int             push(ISpaceMarine* newUnit); // add a new unit to the list if its not NULL and not already in the list
-        
+        Squad                   &operator=(const Squad &SquadInstance);    
 };
 
 #endif

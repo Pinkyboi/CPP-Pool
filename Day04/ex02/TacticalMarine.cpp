@@ -48,7 +48,6 @@ TacticalMarine::~TacticalMarine()
 ISpaceMarine *TacticalMarine::clone(void) const
 {
     TacticalMarine *spaceClone = new TacticalMarine();
-    *spaceClone = *this;
     return spaceClone;
 }
 
