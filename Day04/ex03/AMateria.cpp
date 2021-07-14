@@ -6,24 +6,23 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 17:39:51 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/13 19:39:11 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/14 20:16:27 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-
 AMateria::AMateria(void)
+{
+}
+
+AMateria::~AMateria()
 {
 }
 
 AMateria::AMateria(const std::string& type)
 {
     this->_materiaType = type;
-}
-
-AMateria::~AMateria()
-{
 }
 
 const std::string& AMateria::getType(void) const
@@ -37,10 +36,25 @@ unsigned int AMateria::getXP(void) const
     return this->_xp;
 }
 
+void AMateria::setXP(unsigned int xp)
+{
+    this->_xp = xp;
+}
+void AMateria::setType(std::string materiaType)
+{
+    this->_materiaType = materiaType;
+}
+        
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "A Materia is used on " + target.getName() + "!";   
+}
+
 AMateria& AMateria::operator=(const AMateria &materiaInstance)
 {
     if(this == &materiaInstance)
         return *this;
     this->_materiaType = materiaInstance._materiaType;
     this->_xp = materiaInstance._xp;
+    return *this;
 }

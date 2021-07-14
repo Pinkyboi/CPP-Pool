@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:26:10 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/14 16:28:09 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/14 19:57:31 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "AMateria.hpp"
 
-class IMateriaSource {
+class IMateriaSource
+{
 
 	public:
 		virtual             ~IMateriaSource(){}

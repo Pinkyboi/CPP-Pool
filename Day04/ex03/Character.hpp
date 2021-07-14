@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 18:00:20 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/13 19:38:20 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/14 18:57:50 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-class Character
+class Character : public ICharacter
 {
     private:
         static const int            _maxMateria = 4;
-        int                         _materiaListIndex;
         AMateria*                   _materia[_maxMateria];
         std::string                 _characterName;
                                     Character(void);
@@ -31,6 +30,7 @@ class Character
         virtual void                equip(AMateria* materia);
         virtual void                unequip(int materiaIndex);
         virtual void                use(int materiaIndex, ICharacter& target);
+        Character&                  operator=(const Character& characterInstance);
 };
 
 #endif

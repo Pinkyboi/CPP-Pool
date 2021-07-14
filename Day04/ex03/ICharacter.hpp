@@ -6,13 +6,16 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 17:49:48 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/13 18:11:53 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/14 19:41:09 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __I_CHARACTER__
 #define __I_CHARACTER__
 
+#include "AMateria.hpp"
+
+class AMateria;
 class ICharacter
 {
     public:
