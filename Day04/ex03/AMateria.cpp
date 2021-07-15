@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 17:39:51 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/14 20:16:27 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/15 16:29:23 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void AMateria::setType(std::string materiaType)
         
 void AMateria::use(ICharacter& target)
 {
-    std::cout << "A Materia is used on " + target.getName() + "!";   
+    std::cout << "A Materia is used on " + target.getName() + "!";
+    this->_xp += 10;
 }
 
 AMateria& AMateria::operator=(const AMateria &materiaInstance)

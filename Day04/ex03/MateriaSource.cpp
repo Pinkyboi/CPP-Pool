@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 18:18:48 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/14 20:00:19 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:45:51 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria *materia)
 {
-    if(this->_currentIndex < this->_maxMateria)
+    if(materia && this->_currentIndex < this->_maxMateria)
     {
         this->_materia[this->_currentIndex] = materia;
         this->_currentIndex++;
@@ -42,7 +42,7 @@ AMateria* MateriaSource::createMateria(const std::string &materiaType)
         if(this->_materia[i])
             if(this->_materia[i]->getType() == materiaType)
                 return this->_materia[i]->clone();
-    return 0;
+    return nullptr;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& sourceInstance)
