@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 20:49:03 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/23 02:34:57 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/28 18:54:47 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int Bureaucrat::getGrade() const
 {
     return this->_grade;
 }
+
 /* ************************************************************************* */
 
 void Bureaucrat::checkGrade(int grade)
@@ -58,20 +59,24 @@ void Bureaucrat::decrementGrade()
 
 void Bureaucrat::signForm(Form& formInstance)
 {
-    if(formInstance.getState())
-        std::cout << this->_name << " cannot sign " << formInstance.getName() << ": form already signed." << std::endl;
-    else if (this->_grade > formInstance.getRequiredGradeToSign())
-        std::cout << this->_name << " cannot sign " << formInstance.getName() << ": bureaucrat grade is too low." << std::endl;
-    else
+    try
     {
-        formInstance.setState(true);
+        formInstance.beSigned(*this);
         std::cout << this->_name << " signs " << formInstance.getName() << "." << std::endl;
+    }
+    catch(Bureaucrat::GradeTooLowException &e)
+    {
+        std::cout << this->_name << " cannot sign " << formInstance.getName() << ": bureaucrat grade is too low." << std::endl ;
+    }
+    catch(Form::AlreadySignedException &e)
+    {
+        std::cout << this->_name << " cannot sign " << formInstance.getName() << ": form already signed." << std::endl;
     }
 }
 
 /* ************************************************************************** */
 
-Bureaucrat::GradeTooLowException::GradeTooLowException():_errorMessage("The grade is too low")
+Bureaucrat::GradeTooLowException::GradeTooLowException():_errorMessage("The Bureaucrat's grade is too low.")
 {
 }
 
@@ -81,7 +86,7 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw()
     return _errorMessage.c_str();
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException():_errorMessage("Grade is too high")
+Bureaucrat::GradeTooHighException::GradeTooHighException():_errorMessage("The Bureaucrat's grade is too high.")
 {
 }
 

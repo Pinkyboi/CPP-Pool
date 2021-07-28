@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 00:40:09 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/24 03:01:25 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/28 18:51:03 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,24 @@ class Form
         int             _requiredGradeToSign;
         int             _requiredGradeToExecute;
     public:
+        class           NotSignedException : public std::exception
+        {
+            private:
+                const std::string _errorMessage;
+            public:
+                NotSignedException(void);
+                ~NotSignedException(void) throw(){};
+                virtual const char *what(void) const throw();
+        };
+        class           AlreadySignedException : public std::exception
+        {
+            private:
+                const std::string _errorMessage;
+            public:
+                AlreadySignedException(void);
+                ~AlreadySignedException(void) throw(){};
+                virtual const char *what(void) const throw();
+        };
                         Form(void);
                         Form(std::string name, int requiredGradeToSign, int requiredGradeToExecute);
         void            beSigned(Bureaucrat& bureaucratInstance);

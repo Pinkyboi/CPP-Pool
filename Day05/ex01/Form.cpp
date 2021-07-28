@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 01:21:17 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/24 16:35:46 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/28 18:53:02 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Form::Form(void):_name("random form"), _isSigned(false), _requiredGradeToSign(15
 Form::Form(std::string name, int requiredGradeToSign, int requiredGradeToExecute):_name(name), _isSigned(false), _requiredGradeToSign(requiredGradeToSign), _requiredGradeToExecute(requiredGradeToExecute)
 {
     Bureaucrat::checkGrade(_requiredGradeToSign);
-    // Bureaucrat::checkGrade(_requiredGradeToExecute);
 }
 
 Form::~Form()
@@ -29,9 +28,11 @@ Form::~Form()
 
 void Form::beSigned(Bureaucrat& bureaucratInstance)
 {
+    if(this->_isSigned)
+        throw Form::AlreadySignedException();
     if(bureaucratInstance.getGrade() >= this->_requiredGradeToSign)
         throw Bureaucrat::GradeTooLowException();
-    bureaucratInstance.signForm(*this);
+    this->_isSigned = true;
 }
 
 std::string Form::getName(void) const
@@ -57,6 +58,26 @@ int Form::getRequiredGradeToExecute(void) const
 void Form::setState(bool state)
 {
     this->_isSigned = state;
+}
+
+
+Form::NotSignedException::NotSignedException():_errorMessage("The Form is not signed yet.")
+{
+}
+
+
+const char* Form::NotSignedException::what(void) const throw()
+{
+    return _errorMessage.c_str();
+}
+
+Form::AlreadySignedException::AlreadySignedException():_errorMessage("The Form is already signed.")
+{
+}
+
+const char* Form::AlreadySignedException::what(void) const throw()
+{
+    return _errorMessage.c_str();
 }
 
 Form& Form::operator=(const Form& formInstance)

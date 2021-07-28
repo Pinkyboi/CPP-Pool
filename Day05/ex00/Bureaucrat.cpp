@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 20:49:03 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/23 00:27:57 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/28 18:55:00 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& BureaucratInstane)
     return *this;
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException():_errorMessage("The grade is too low")
+Bureaucrat::GradeTooLowException::GradeTooLowException():_errorMessage("The Bureaucrat's grade is too low.")
 {
 }
 
@@ -69,7 +69,7 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw()
     return _errorMessage.c_str();
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException():_errorMessage("Grade is too high")
+Bureaucrat::GradeTooHighException::GradeTooHighException():_errorMessage("The Bureaucrat's grade is too high.")
 {
 }
 

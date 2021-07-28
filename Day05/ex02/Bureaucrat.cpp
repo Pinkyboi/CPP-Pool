@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 20:49:03 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/24 03:00:57 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/07/28 19:27:37 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,29 +58,41 @@ void Bureaucrat::decrementGrade()
 
 void Bureaucrat::signForm(Form& formInstance)
 {
-    if(formInstance.getState())
-        std::cout << this->_name << " cannot sign " << formInstance.getName() << ": form already signed." << std::endl;
-    else
+    try
     {
-        formInstance.setState(true);
+        formInstance.beSigned(*this);
         std::cout << this->_name << " signs " << formInstance.getName() << "." << std::endl;
+    }
+    catch(Bureaucrat::GradeTooLowException &e)
+    {
+        std::cout << this->_name << " cannot sign " << formInstance.getName() << ": bureaucrat grade is too low." << std::endl ;
+    }
+    catch(Form::AlreadySignedException &e)
+    {
+        std::cout << this->_name << " cannot sign " << formInstance.getName() << ": form already signed." << std::endl;
     }
 }
 
 void Bureaucrat::executeForm(const Form& formInstance)
 {
-    if(!formInstance.getState())
-        std::cout << this->_name << " cannot execute " << formInstance.getName() << ": form not signed yet." << std::endl;
-    else
+    try
     {
-        std::cout << this->_name << " execute " << formInstance.getName() << "." << std::endl;
-        formInstance.action();
+        formInstance.execute(*this);
+        std::cout << this->_name << " executes " << formInstance.getName() << "." << std::endl;
+    }
+    catch(Bureaucrat::GradeTooLowException &e)
+    {
+        std::cout << this->_name << " cannot execute " << formInstance.getName() << ": bureaucrat grade is too low." << std::endl ;
+    }
+    catch(Form::NotSignedException &e)
+    {
+        std::cout << this->_name << " cannot execute " << formInstance.getName() << ": form not signed yet." << std::endl;
     }
 }
 
 /* ************************************************************************** */
 
-Bureaucrat::GradeTooLowException::GradeTooLowException():_errorMessage("The grade is too low")
+Bureaucrat::GradeTooLowException::GradeTooLowException():_errorMessage("The Bureaucrat's grade is too low.")
 {
 }
 
@@ -90,7 +102,7 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw()
     return _errorMessage.c_str();
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException():_errorMessage("Grade is too high")
+Bureaucrat::GradeTooHighException::GradeTooHighException():_errorMessage("The Bureaucrat's grade is too high")
 {
 }
 
