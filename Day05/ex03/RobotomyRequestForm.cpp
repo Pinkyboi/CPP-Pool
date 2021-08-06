@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 21:22:22 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/24 03:10:11 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/08/06 18:52:58 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &r
     if (this == &robotInstance)
         return *this;
     this->_target = robotInstance._target;
+    this->setState(robotInstance.getState());
     return *this;
 }
 

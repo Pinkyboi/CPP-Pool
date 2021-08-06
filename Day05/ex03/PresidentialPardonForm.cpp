@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 01:52:50 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/24 03:03:51 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/08/06 18:53:16 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     if (this == &presidentInstance)
         return *this;
     this->_target = presidentInstance._target;
+    this->setState(presidentInstance.getState());
     return *this;
 }
 

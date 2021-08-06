@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 20:49:59 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/24 03:09:16 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/08/06 18:47:29 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     if (this == &shrubberyInstance)
         return *this;
     this->_target = shrubberyInstance._target;
+    this->setState(shrubberyInstance.getState());
     return *this;
 }
 
