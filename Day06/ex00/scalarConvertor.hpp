@@ -6,9 +6,12 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 02:49:55 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/08/07 19:50:23 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/17 12:05:32 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef __SCALAR_CONVERTOR__
+#define __SCALAR_CONVERTOR__
 
 #include <iostream>
 #include <iomanip>
@@ -41,3 +44,5 @@ class scalarConvertor
                             operator double();
                             operator char();
 };
+
+#endif
