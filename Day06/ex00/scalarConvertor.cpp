@@ -55,7 +55,7 @@ void scalarConvertor::annouceFloat(void) const
     try
     {
         float conversionValue = float(scalarInstance);
-        if(conversionValue == (float)(int)conversionValue)
+        if(conversionValue == floor(conversionValue))
             std::cout << std::fixed << std::setprecision(1);
         std::cout << conversionValue << 'f' << std::endl;
     }
@@ -72,7 +72,7 @@ void scalarConvertor::annouceDouble(void) const
     try
     {
         double conversionValue = double(scalarInstance);
-        if(conversionValue == (float)(int)conversionValue)
+        if(conversionValue == floor(conversionValue))
             std::cout << std::fixed << std::setprecision(1);
         std::cout << conversionValue << std::endl;
     }
