@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 18:12:01 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/18 18:07:29 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/19 16:20:28 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,32 @@ class Array
 {
     private:
         unsigned int    _arrayLenght;
-    public:
-        Container       *arrayContainer;
+        Container       *_arrayContainer;
     public:
                         Array(void);
                         Array(unsigned int arrayLenght);
                         Array(const Array& arrayInstance);
         unsigned int    size(void);
         Array&          operator=(const Array& arrayInstance);
-        Container       operator[](unsigned int i);
+        Container&      operator[](unsigned int i);
+        Container       operator[](unsigned int i) const;
                         ~Array();
 };
 
 template<typename Container>
-Array<Container>::Array(void):_arrayLenght(arrayLenght)
+Array<Container>::Array(void):_arrayLenght(0), _arrayContainer(NULL)
 {
-    arrayContainer = new Container[];
+    this->_arrayContainer = NULL;
 }
 
 template<typename Container>
 Array<Container>::Array(unsigned int arrayLenght):_arrayLenght(arrayLenght)
 {
-    arrayContainer = new Container[this->_arrayLenght];
+    this->_arrayContainer = new Container[this->_arrayLenght];
 }
 
 template<typename Container>
-Array<Container>::Array(const Array& arrayInstance)
+Array<Container>::Array(const Array& arrayInstance):_arrayLenght(0), _arrayContainer(NULL)
 {
     *this = arrayInstance; 
 }
@@ -51,6 +51,8 @@ Array<Container>::Array(const Array& arrayInstance)
 template<typename Container>
 Array<Container>::~Array()
 {
+    if(this->_arrayLenght)
+        delete[] this->_arrayContainer;
 }
 
 template<typename Container>
@@ -64,24 +66,30 @@ Array<Container>& Array<Container>::operator=(const Array& arrayInstance)
 {
     if(this == &arrayInstance)
         return *this;
-    delete[] this->arrayContainer;
-    unsigned int arrayInstanceSize = arrayContainer.size();
-    this->arrayContainer = new Container[arrayInstanceSize];
+    if(this->_arrayLenght)
+        delete[] this->_arrayContainer;
+    unsigned int arrayInstanceSize = arrayInstance._arrayLenght;
+    this->_arrayLenght = arrayInstance._arrayLenght;
+    this->_arrayContainer = new Container[arrayInstanceSize];
     for(int i = 0; i < arrayInstanceSize; i++)
-        this->arrayContainer[i] = arrayInstance[i];
+        this->_arrayContainer[i] = arrayInstance[i];
+    return *this;
 }
 
 template<typename Container>
-Container Array<Container>::operator[](unsigned i)
+Container& Array<Container>::operator[](unsigned i)
 {
-    try
-    {
-        return this->arrayContainer[i];
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    if(i < 0 || i >= this->_arrayLenght)
+        throw std::out_of_range("out_of_range");
+    return this->_arrayContainer[i];
+}
+
+template<typename Container>
+Container Array<Container>::operator[](unsigned i) const
+{
+    if(i < 0 || i >= this->_arrayLenght)
+        throw std::out_of_range("out_of_range");
+    return this->_arrayContainer[i];
 }
 
 #endif
