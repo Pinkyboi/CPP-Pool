@@ -6,12 +6,12 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 18:12:08 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/18 17:12:06 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/19 01:26:59 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
