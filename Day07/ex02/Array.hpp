@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 18:12:01 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/19 16:20:28 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/19 16:25:27 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ template<typename Container>
 Container& Array<Container>::operator[](unsigned i)
 {
     if(i < 0 || i >= this->_arrayLenght)
-        throw std::out_of_range("out_of_range");
+        throw std::exception();
     return this->_arrayContainer[i];
 }
 
@@ -88,7 +88,7 @@ template<typename Container>
 Container Array<Container>::operator[](unsigned i) const
 {
     if(i < 0 || i >= this->_arrayLenght)
-        throw std::out_of_range("out_of_range");
+        throw std::exception();
     return this->_arrayContainer[i];
 }
 
