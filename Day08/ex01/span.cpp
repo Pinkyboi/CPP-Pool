@@ -6,40 +6,42 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 17:25:00 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/19 18:25:13 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/19 22:19:56 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
 
-template<typename T>
-Span<T>::Span(T& containerFiller):_internalContainer(containerFiller)
+Span::Span(unsigned int size):_size(size)
+{
+    this->_internalContainer.reserve(size);
+}
+
+Span::Span(const Span& spanInstance)
+{
+    *this = spanInstance;
+}
+
+Span::~Span()
 {
 }
 
-template<typename T>
-Span<T>::~Span()
+void Span::addNumber(int singleNumber)
 {
-}
-
-template<typename T>
-void Span<T>::addNumber(int singleNumber) throw()
-{
-    if(std::find(_internalContainer.begin(), _internalContainer.end(), item) != _internalContainer.end())
+    if(_internalContainer.size() == this->_size)
         throw std::exception();
     this->_internalContainer.push_back(singleNumber);
 }
 
-template<typename T>
-int Span<T>::shortestSpan(void)
+int Span::shortestSpan(void)
 {
-    if(_internalContainer.size() == 1 || _internalContainer.size() == 1)
-        return std::exception();
+    if(_internalContainer.size() == 1 || _internalContainer.size() == 0)
+        throw std::exception();
     int shortestSpan = std::numeric_limits<int>::max();
-    typename T::iterator end = _internalContainer.end();
-    for(typename T::iterator it = _internalContainer.begin(); it != end; it++)
+    std::vector<int>::iterator end = _internalContainer.end();
+    for(std::vector<int>::iterator it = _internalContainer.begin(); it != end; it++)
     {
-        for(typename T::iterator jt = it; jt != end; jt++)
+        for(std::vector<int>::iterator jt = it + 1; jt != end; jt++)
         {
             int currentSpan = std::abs(*it - *jt);
             if(currentSpan < shortestSpan)
@@ -47,23 +49,34 @@ int Span<T>::shortestSpan(void)
 
         }
     }
+    return shortestSpan;
 }
 
-template<typename T>
-int Span<T>::shortestSpan(void)
+int Span::longestSpan(void)
 {
-    if(_internalContainer.size() == 1 || _internalContainer.size() == 1)
-        return std::exception();
-    int shortestSpan = std::numeric_limits<int>::min();
-    typename T::iterator end = _internalContainer.end();
-    for(typename T::iterator it = _internalContainer.begin(); it != end; it++)
+    if(_internalContainer.size() == 1 || _internalContainer.size() == 0)
+        throw std::exception();
+    int longestSpan = std::numeric_limits<int>::min();
+    std::vector<int>::iterator end = _internalContainer.end();
+    for(std::vector<int>::iterator it = _internalContainer.begin(); it != end; it++)
     {
-        for(typename T::iterator jt = it; jt != end; jt++)
+        for(std::vector<int>::iterator jt = it + 1; jt != end; jt++)
         {
             int currentSpan = std::abs(*it - *jt);
-            if(currentSpan > shortestSpan)
-                shortestSpan = currentSpan;
+            if(currentSpan > longestSpan)
+                longestSpan = currentSpan;
 
         }
     }
+    return longestSpan;
+}
+
+Span& Span::operator=(const Span& spanInstance)
+{
+    if(this == &spanInstance)
+        return *this;
+    this->_size = spanInstance._size;
+    this->_internalContainer.empty();
+    this->_internalContainer = spanInstance._internalContainer;
+    return *this;
 }

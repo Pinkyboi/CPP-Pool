@@ -6,33 +6,33 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 17:25:02 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/19 18:25:43 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/19 22:09:48 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __SPAN__
 #define __SPAN__
 
-#include <vector>
+#include<vector>
 #include<iostream>
 #include<algorithm>
 #include<limits>
 
-template<typename T>
-
 class Span
 {
     private:
-        T       _internalContainer;
+        std::vector<int>       _internalContainer;
+        unsigned int           _size;
     private:
                 Span(void){};
-                Span(const &spanInstance){};
     public:
-                Span(T& containerFiller);
+                Span(const Span&spanInstance);
+                Span(unsigned int size);
                 ~Span();
-        void    addNumber(int singleNumber) throw();
+        void    addNumber(int singleNumber);
         int     shortestSpan(void);
         int     longestSpan(void);
+        Span&   operator=(const Span&spanInstance);
 };
 
 
