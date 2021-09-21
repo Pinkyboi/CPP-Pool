@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 17:25:02 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/19 22:09:48 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/21 17:10:18 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Span
                 Span(unsigned int size);
                 ~Span();
         void    addNumber(int singleNumber);
+        void    appendNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         int     shortestSpan(void);
         int     longestSpan(void);
         Span&   operator=(const Span&spanInstance);

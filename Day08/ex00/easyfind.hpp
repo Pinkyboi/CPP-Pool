@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 16:42:00 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/19 18:07:17 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:16:39 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,25 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
+#include <deque>
+#include <forward_list>
+#include <set>
 #include <algorithm>
+#include <memory>
 
-template <typename T>
-typename T::iterator easyfind(T haystack, int needle)
+template <template <typename, typename> class Container, 
+          typename Value,
+          typename Allocator>
+typename Container<Value, Allocator>::iterator easyfind(Container<Value, Allocator> &haystack, const Value needle)
 {
     return std::find(haystack.begin(), haystack.end(), needle);
 }
+
+// template <typename T>
+// typename T::iterator easyfind(T haystack, int needle)
+// {
+//     return std::find(haystack.begin(), haystack.end(), needle);
+// }
 
 #endif
