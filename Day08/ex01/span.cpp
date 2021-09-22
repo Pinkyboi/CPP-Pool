@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 17:25:00 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/21 17:58:14 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:14:27 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ Span::~Span()
 void Span::addNumber(int singleNumber)
 {
     if(_internalContainer.size() == this->_size)
-        throw std::exception();
+        throw std::out_of_range("Maximum size already reached");
     this->_internalContainer.push_back(singleNumber);
 }
 
 void Span::appendNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    this->_internalContainer.insert(this->_internalContainer.begin(), begin, end);
+    int count = std::distance(begin, end);
+    if(count + this->_internalContainer.size() <= this->_size)
+        this->_internalContainer.insert(this->_internalContainer.begin(), begin, end);
+    else
+        throw std::out_of_range("Not enough space");
 }
 
 int Span::shortestSpan(void)
@@ -44,14 +48,14 @@ int Span::shortestSpan(void)
         throw std::exception();
     int shortestSpan = std::numeric_limits<int>::max();
     std::vector<int>::iterator end = _internalContainer.end();
-    for(std::vector<int>::iterator it = _internalContainer.begin(); it != end; it++)
+    std::sort(this->_internalContainer.begin(),end);
+    
+    for(std::vector<int>::iterator it = this->_internalContainer.begin(); it != end; it++)
     {
-        for(std::vector<int>::iterator jt = it + 1; jt != end; jt++)
-        {
-            int currentSpan = std::abs(*it - *jt);
+        if(it + 1 != end){
+            int currentSpan = std::abs(*it - *(it + 1));
             if(currentSpan < shortestSpan)
                 shortestSpan = currentSpan;
-
         }
     }
     return shortestSpan;
@@ -61,19 +65,9 @@ int Span::longestSpan(void)
 {
     if(_internalContainer.size() == 1 || _internalContainer.size() == 0)
         throw std::exception();
-    int longestSpan = std::numeric_limits<int>::min();
-    std::vector<int>::iterator end = _internalContainer.end();
-    for(std::vector<int>::iterator it = _internalContainer.begin(); it != end; it++)
-    {
-        for(std::vector<int>::iterator jt = it + 1; jt != end; jt++)
-        {
-            int currentSpan = std::abs(*it - *jt);
-            if(currentSpan > longestSpan)
-                longestSpan = currentSpan;
-
-        }
-    }
-    return longestSpan;
+    int max = *std::max_element(this->_internalContainer.begin(), this->_internalContainer.end());
+    int min = *std::min_element(this->_internalContainer.begin(), this->_internalContainer.end());
+    return max - min;
 }
 
 Span& Span::operator=(const Span& spanInstance)
@@ -81,7 +75,7 @@ Span& Span::operator=(const Span& spanInstance)
     if(this == &spanInstance)
         return *this;
     this->_size = spanInstance._size;
-    this->_internalContainer.empty();
-    this->_internalContainer = spanInstance._internalContainer;
+    std::vector<int> temp(spanInstance._internalContainer);
+    std::swap(this->_internalContainer, temp);
     return *this;
 }
