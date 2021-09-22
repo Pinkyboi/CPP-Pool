@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 17:25:00 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/22 17:14:27 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/22 18:41:57 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int Span::shortestSpan(void)
     int shortestSpan = std::numeric_limits<int>::max();
     std::vector<int>::iterator end = _internalContainer.end();
     std::sort(this->_internalContainer.begin(),end);
-    
     for(std::vector<int>::iterator it = this->_internalContainer.begin(); it != end; it++)
     {
         if(it + 1 != end){
