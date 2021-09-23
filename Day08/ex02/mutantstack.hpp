@@ -6,13 +6,16 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:40:25 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/23 16:00:15 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/23 18:35:39 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef __MUTANT_STACK__ 
+#define __MUTANT_STACK__ 
+
 #include <stack>
 template <typename T>
+
 class MutantStack : public std::stack<T>
 {
     public :
@@ -34,3 +37,4 @@ class MutantStack : public std::stack<T>
         };
 };
 
+#endif

@@ -6,12 +6,12 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:40:14 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/23 18:28:06 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/23 18:35:58 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mutantstack.hpp"
-
+#include <iostream>
 int main()
 {
     // MutantStack<int> mstack;
