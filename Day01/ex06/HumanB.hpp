@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 16:30:13 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/09 16:30:15 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:17:43 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef __HUMAN_B__
+#define __HUMAN_B__
 
 #include "HumanA.hpp"
 
@@ -24,3 +27,4 @@ class HumanB
 		~HumanB();
 };
 
+#endif

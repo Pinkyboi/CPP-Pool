@@ -1,14 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PoneBook.hpp                                       :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 18:27:15 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/04 18:27:16 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:13:47 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef __CONTACT__
+#define __CONTRACT__
 
 #include <iostream>
 #include <iomanip>
@@ -22,7 +25,7 @@ class Contact
 {
 
 	private:
-		const std::string _messages[ARG_NUMBER];
+		static const std::string _messages[ARG_NUMBER];
 		std::string _fields[ARG_NUMBER];
 	public:
 		Contact();
@@ -31,3 +34,5 @@ class Contact
 		std::string GetMessage(int messageIndex);
 		~Contact();
 };
+
+#endif

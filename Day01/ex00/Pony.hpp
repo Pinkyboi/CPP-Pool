@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Pony.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:29:57 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/04 17:29:59 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:14:17 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef _PONNY_HPP
-#define _PONNY_HPP
+# ifndef __PONNY__
+#define __PONNY__
 
+#include <iostream>
 class Pony
 {
     public:
@@ -20,7 +21,7 @@ class Pony
         ~Pony();
     private:
         static int _total_number;
-        static int _pony_number;
+        int _pony_number;
 };
 
 #endif

@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __HUMAN__
+#define __HUMAN__
+
 #include "Brain.hpp"
 
 class Human
@@ -22,3 +25,5 @@ class Human
 		std::string identify(void);
 		~Human();
 };
+
+#endif

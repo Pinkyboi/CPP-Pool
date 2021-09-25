@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::     ::::::::   */
-/*   scalarConvertor.cpp                               :+:     :+:   :+:   */
+/*                                                        :::      ::::::::   */
+/*   scalarConvertor.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 18:24:28 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/08/07 19:59:26 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 14:44:51 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,6 @@ scalarConvertor::operator double()
 scalarConvertor::operator char()
 {
     int charScalar;
-
     try
     {
         charScalar = std::stoi(this->_scalarArgument.c_str());

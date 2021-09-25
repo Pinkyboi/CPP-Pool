@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 16:17:46 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/23 16:17:47 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 15:53:01 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ FragTrap &FragTrap::operator=(const FragTrap &argument)
 
 void	FragTrap::displayAttack(std::string const & target, std::string attackType, int damage) const
 {
-	std::cout << NARRATOR;
+	std::cout << F_NARRATOR;
 	std::cout << this->_name;
 	std::cout << " attacks " << target;
 	std::cout << " " << attackType;
@@ -106,18 +106,18 @@ void	FragTrap::takeDamage(unsigned int amount)
 		this->_armorDamageReduction -= amount;
 		if (this->_armorDamageReduction < 0)
 		{
-			std::cout << NARRATOR << this->_name << " recieved " << amount << " points of damage!" << std::endl;
+			std::cout << F_NARRATOR << this->_name << " recieved " << amount << " points of damage!" << std::endl;
 			this->_hitPoints += this->_armorDamageReduction;
 			this->_hitPoints = getMaxValue(this->_hitPoints, MIN_HP);
 			if(!this->_hitPoints)
-				std::cout << NARRATOR << this->_name << " died, bye bye " << this->_name << "." << std::endl;
+				std::cout << F_NARRATOR << this->_name << " died, bye bye " << this->_name << "." << std::endl;
 			this->_armorDamageReduction = 0;
 		}
 		else
-			std::cout << NARRATOR << this->_name << "'s shield took " << amount << " points of damage!" << std::endl;
+			std::cout << F_NARRATOR << this->_name << "'s shield took " << amount << " points of damage!" << std::endl;
 	}
 	else
-		std::cout << NARRATOR << "He is already dead...please stop this massacre already" << std::endl;
+		std::cout << F_NARRATOR << "He is already dead...please stop this massacre already" << std::endl;
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
@@ -134,5 +134,5 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 		displayAttack(target, _attackPool[(int)(rand() % 5)], this->_specialdAttackDamage);
 	}
 	else
-		std::cout << NARRATOR << "Unable to cast a spell, a long rest may help." << std::endl;
+		std::cout << F_NARRATOR << "Unable to cast a spell, a long rest may help." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 02:49:55 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/17 12:05:32 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 14:36:46 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cmath>
 
 class scalarConvertor
 {

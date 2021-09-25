@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 17:46:40 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/06 17:46:58 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:14:38 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef __ZOMBIE__
+#define __ZOMBIE__
 
 #include <iostream>
 
@@ -23,3 +26,5 @@ class Zombie
 		void annouce();
 		~Zombie(void);
 };
+
+#endif

@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 16:17:53 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/23 16:17:54 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 15:52:26 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef __FRAG_TRAP__
+#define __FRAG_TRAP__
 
 #include <iostream>
 
 #define MAX_HP 100
 #define MIN_HP 0
 #define ATTACKS_NUMBER 5
-#define NARRATOR "FragTrap: "
+#define F_NARRATOR "FragTrap: "
 
 class FragTrap
 {
@@ -47,3 +50,5 @@ class FragTrap
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 };
+
+#endif

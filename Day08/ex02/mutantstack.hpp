@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:40:25 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/09/23 18:35:39 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 13:25:08 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
     public :
-        typedef typename std::stack<T>::container_type  container_type;
-        typedef typename container_type::iterator       iterator;
+        typedef typename std::stack<T>::container_type  container_t;
+        typedef typename container_t::iterator       iterator;
     public:
                         MutantStack(void){};
                         MutantStack(const MutantStack& stackInstance){*this = stackInstance;};
@@ -31,7 +31,7 @@ class MutantStack : public std::stack<T>
         {
             if(this == &stackInstance)
                 return *this;
-            container_type temp(stackInstance.c);
+            container_t temp(stackInstance.c);
             std::swap(std::stack<T>::c, temp);
             return *this;
         };

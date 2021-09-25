@@ -6,7 +6,7 @@
 /*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 13:13:33 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/07/07 18:59:03 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:06:02 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main()
     zaz->attack(b);
     std::cout << *zaz;
     zaz->attack(b);
-    zaz->attack(b);
+    // zaz->attack(b); to verify that the mutant is dead
     return 0;
 }
 

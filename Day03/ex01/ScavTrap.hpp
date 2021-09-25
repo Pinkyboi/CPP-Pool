@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 13:36:03 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/24 13:36:04 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 15:53:53 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __SCAV_TRAP__
+#define __SCAV_TRAP__
 
 #include <iostream>
 #include "FragTrap.hpp"
@@ -42,10 +44,12 @@ class ScavTrap
 		ScavTrap(void);
 		ScavTrap(ScavTrap &argument);
 		~ScavTrap();
-		FragTrap	&operator=(const FragTrap &argument);
+		ScavTrap	&operator=(const ScavTrap &argument);
 		void		rangedAttack(std::string const & target);
 		void		meleeAttack(std::string const & target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 		void		challengeNewcomer(void);
 };
+
+#endif

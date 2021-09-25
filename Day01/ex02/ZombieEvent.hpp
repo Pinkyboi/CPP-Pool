@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 18:00:08 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/06 18:00:09 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:15:03 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef __ZOMBIE_EVENT__
+#define __ZOMBIE_EVENT__
 
 #include <iostream>
 #include "Zombie.hpp"
@@ -25,3 +28,5 @@ class ZombieEvent
 		Zombie	*randomChump(void);
 		~ZombieEvent(void);
 };
+
+#endif

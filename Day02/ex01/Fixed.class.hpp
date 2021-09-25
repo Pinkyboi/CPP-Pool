@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abenaiss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abenaiss <abenaiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 16:17:05 by abenaiss          #+#    #+#             */
-/*   Updated: 2021/06/15 16:17:12 by abenaiss         ###   ########.fr       */
+/*   Updated: 2021/09/25 16:19:11 by abenaiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef __FIXED__
+#define __FIXED__
 
 #include <iostream>
 #include <cmath>
@@ -31,3 +34,5 @@ class Fixed
 		Fixed &operator=(const Fixed &argument);
 };
 std::ostream& operator<< (std::ostream& stream, const Fixed& agument);
+
+#endif
